@@ -57,6 +57,8 @@ RUN rpm-ostree install /tmp/rpms/kmods/kmod-evdi*.rpm
 
 COPY build.sh /tmp/build.sh
 
+COPY --chown=root:root edid_aoc.bin /usr/lib/firmware/edid_aoc.bin
+
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
